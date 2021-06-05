@@ -15,3 +15,5 @@ RUN cd /data && \
 
 COPY install.sh /docker-entrypoint-initdb.d/
 RUN dos2unix /docker-entrypoint-initdb.d/*.sh
+
+RUN sed -i -e 's/all all all/all docker all/g' /usr/local/bin/docker-entrypoint.sh
