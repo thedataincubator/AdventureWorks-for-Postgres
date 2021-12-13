@@ -7,6 +7,7 @@ SHELL
 cd /data
 psql -d Adventureworks < /data/install.sql
 psql -d Adventureworks <<- EOF
+  REVOKE CREATE ON SCHEMA public FROM PUBLIC;
   CREATE USER docker WITH PASSWORD 'docker';
   GRANT CONNECT ON DATABASE "Adventureworks" TO docker;
   GRANT USAGE ON SCHEMA hr TO docker;
